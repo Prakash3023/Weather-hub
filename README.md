@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Weather Hub
 
 A polished, animated weather dashboard built with React 19, Vite, TypeScript, Tailwind CSS v4, Framer Motion, Zustand, and Recharts.
@@ -50,3 +51,8 @@ src/
 - Data source: Open-Meteo Forecast API, Air Quality API, and Geocoding API (all free, no key, generous rate limits for personal projects).
 - To switch providers (e.g. OpenWeatherMap), only `src/lib/api.ts` needs to change - every page consumes data through the `useWeather` hook.
 - The main JS bundle is a single chunk (~237 kB gzipped). For a larger app, route-based code-splitting (`React.lazy`) would be the next step.
+=======
+# Weather-hub
+
+Intern id:- CITS1199
+>>>>>>> 21ffde6336d340155aa0920a824c6c8abac7ca8e
