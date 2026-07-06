@@ -1,0 +1,105 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --glass-bg-strong: rgba(255, 255, 255, 0.1);
+  --text-primary: #f4f6fb;
+  --text-secondary: rgba(244, 246, 251, 0.64);
+  --text-tertiary: rgba(244, 246, 251, 0.4);
+  --accent: #7cc4ff;
+
+  --sky-a: #1b2a4a;
+  --sky-b: #0d1526;
+  --sky-c: #2e4270;
+}
+
+[data-theme="light"] {
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(20, 30, 50, 0.1);
+  --glass-bg-strong: rgba(255, 255, 255, 0.72);
+  --text-primary: #131a2a;
+  --text-secondary: rgba(19, 26, 42, 0.62);
+  --text-tertiary: rgba(19, 26, 42, 0.4);
+}
+
+[data-sky="clear-day"] { --sky-a: #4a9dd6; --sky-b: #a7d8f0; --sky-c: #ffd98a; --accent: #ff9f45; }
+[data-sky="clear-night"] { --sky-a: #0b1330; --sky-b: #1c2a52; --sky-c: #3a3f7a; --accent: #8fb2ff; }
+[data-sky="cloudy-day"] { --sky-a: #5c6b7d; --sky-b: #8a97a6; --sky-c: #c3ccd6; --accent: #cfd6de; }
+[data-sky="cloudy-night"] { --sky-a: #1a2130; --sky-b: #2c3648; --sky-c: #444f63; --accent: #9aa8bd; }
+[data-sky="rain-day"] { --sky-a: #33465e; --sky-b: #465e7e; --sky-c: #6f88a8; --accent: #7ec8ff; }
+[data-sky="rain-night"] { --sky-a: #10182a; --sky-b: #1e2c44; --sky-c: #33456a; --accent: #6aa8e0; }
+[data-sky="storm-day"] { --sky-a: #262b3a; --sky-b: #3a3f56; --sky-c: #5a5f7a; --accent: #ffe66d; }
+[data-sky="storm-night"] { --sky-a: #0c0e18; --sky-b: #1c1f32; --sky-c: #302f4d; --accent: #ffe66d; }
+[data-sky="snow-day"] { --sky-a: #b9cbe0; --sky-b: #e4edf7; --sky-c: #ffffff; --accent: #5fb4d6; --text-primary: #142033; --text-secondary: rgba(20,32,51,.62); }
+[data-sky="snow-night"] { --sky-a: #1b2740; --sky-b: #33455e; --sky-c: #56728e; --accent: #bfe3ff; }
+[data-sky="fog-day"] { --sky-a: #7c8896; --sky-b: #a5aeb9; --sky-c: #cbd2d9; --accent: #d8dde2; }
+[data-sky="fog-night"] { --sky-a: #232b36; --sky-b: #333c48; --sky-c: #4a5460; --accent: #a8b2bd; }
+
+html, body, #root { height: 100%; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: #0d1526;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display { font-family: var(--font-display); }
+
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-strong {
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--glass-border); border-radius: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.shimmer {
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 150% 0; }
+  100% { background-position: -50% 0; }
+}
